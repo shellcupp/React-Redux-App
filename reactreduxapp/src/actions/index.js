@@ -9,7 +9,8 @@ export const setJoke = () => dispatch => {
     axios
     .get("https://sv443.net/jokeapi/v2/joke/Programming")
     .then(res => {
-        console.log(res.data.joke)
+        console.log(res)
+        setJoke(res.data.joke)
         dispatch({type: GET_JOKE_SUCCESS, payload: res.data.joke
         })
     })

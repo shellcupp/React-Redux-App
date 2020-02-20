@@ -6,11 +6,10 @@ import {setJoke} from '../actions';
 const Joke = props => {
 
     return (
-        <section>
-            <button onClick={props.setJoke}>Get Joke</button>
-            {!props.setJoke && !props.isLoading && (
-                <h2>Get a new joke</h2>
-            )}
+        <div>
+        <button onClick={props.setJoke}>Get Joke</button>
+        {!props.activity && !props.isLoading && (<h2>Go ahead and get a new joke.</h2>)}
+            
             {props.isLoading && (
                 <Loader
                 type="Puff"
@@ -20,19 +19,20 @@ const Joke = props => {
                 timeout={3000}
               />
             )}
+
             {props.setJoke && !props.isLoading && (
-                <div >
-                    <h2>{props.setJoke.setJoke}</h2>
-                </div>
+            <h2>{props.joke}</h2>
             )}
-        </section>
+        </div>
     )
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = state => {
+    return {
     isLoading: state.isLoading,
-    error: state.error,
-    setJoke: state.setJoke
-});
+    setJoke: state.setJoke,
+    error: state.error
+}
+};
 
 export default connect(mapStateToProps, {setJoke})(Joke);
