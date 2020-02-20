@@ -9,7 +9,7 @@ const Joke = props => {
         <section>
             <button onClick={props.setJoke}>Get Joke</button>
             {!props.setJoke && !props.isLoading && (
-                <h2>Get new Joke!</h2>
+                <h2>Get a new joke</h2>
             )}
             {props.isLoading && (
                 <Loader
@@ -17,17 +17,14 @@ const Joke = props => {
                 color="#00BFFF"
                 height={100}
                 width={100}
-                timeout={3000} //3 secs
+                timeout={3000}
               />
             )}
             {props.setJoke && !props.isLoading && (
                 <div >
                     <h2>{props.setJoke.setJoke}</h2>
-
                 </div>
-                
             )}
-            
         </section>
     )
 }
