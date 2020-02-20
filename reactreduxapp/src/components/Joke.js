@@ -1,13 +1,13 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import Loader from 'react-loader-spinner';
-import {getJokes} from '../actions';
+import {setJoke} from '../actions';
 
 const Joke = props => {
 
     return (
         <section>
-            <button onClick={props.getJokes}>Get Joke</button>
+            <button onClick={props.setJoke}>Get Joke</button>
             {!props.setJoke && !props.isLoading && (
                 <h2>Get new Joke!</h2>
             )}
@@ -35,7 +35,7 @@ const Joke = props => {
 const mapStateToProps = state => ({
     isLoading: state.isLoading,
     error: state.error,
-    setJoke: state.strDrink
+    setJoke: state.setJoke
 });
 
-export default connect(mapStateToProps, {getJokes})(Joke);
+export default connect(mapStateToProps, {setJoke})(Joke);

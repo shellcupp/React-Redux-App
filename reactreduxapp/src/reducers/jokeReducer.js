@@ -1,8 +1,10 @@
-import {GET_JOKE, GET_JOKE_SUCCESS, GET_JOKE_FAIL} from '../actions'
+import {GET_JOKE, GET_JOKE_SUCCESS, GET_JOKE_FAIL, setJoke} from '../actions'
+
+
 const initialState = {
     isLoading: false,
     error: '',
-    setJoke:{}
+    setJoke:{setJoke}
 }
 const jokeReducer = (state = initialState, action) => {
 switch(action.type) {
@@ -10,13 +12,12 @@ switch(action.type) {
         return{
             ...state,
             isLoading: true,
-            error:''
+            setJoke: action.payload
         }
         case GET_JOKE_SUCCESS:
             return {
                 ...state,
                 isLoading: false,
-                error: '',
                 setJoke: action.payload
             }
         case GET_JOKE_FAIL:

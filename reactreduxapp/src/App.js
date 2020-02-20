@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 //import thunk from 'redux-thunk';
 import Joke from './components/Joke';
 // Build a React Redux app
